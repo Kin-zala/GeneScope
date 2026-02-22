@@ -16,8 +16,8 @@ It supports:
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/yourusername/genescope.git
-cd genescope 
+git clone https://github.com/Kin-zala/GeneScope.git
+cd GeneScope 
 ```
 2. Install dependencies:
 ```bash
@@ -25,7 +25,7 @@ pip install -r requirements.txt
 ```
 3. Run the app
 ```bash
-streamlit run app.py
+streamlit run genescope_app.py
 ```
 
 ## 📂 Input Format
