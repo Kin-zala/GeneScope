@@ -6,6 +6,7 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 import plotly.express as px
 import plotly.graph_objects as go
+import io
 
 st.set_page_config(page_title="GeneScope", layout="wide")
 
@@ -108,12 +109,12 @@ if df is not None:
 
                 st.plotly_chart(fig_box, use_container_width=True)
 
-                img_box = fig_box.to_image(format="png", width=1000, height=600, scale=2)
+                html_box = fig_box.to_html(full_html=True, include_plotlyjs='cdn')
                 st.download_button(
-                    "Download Boxplot as PNG",
-                    data=img_box,
-                    file_name="genescope_boxplot.png",
-                    mime="image/png"
+                    "Download Boxplot as HTML",
+                    data=html_box,
+                    file_name="genescope_boxplot.html",
+                    mime="text/html"
                 )
             except Exception as e:
                 st.error(f"Error generating boxplot: {e}")
@@ -143,12 +144,12 @@ if df is not None:
 
                 st.plotly_chart(fig_heat, use_container_width=True)
 
-                img_heat = fig_heat.to_image(format="png", width=1000, height=800, scale=2)
+                html_heat = fig_heat.to_html(full_html=True, include_plotlyjs='cdn')
                 st.download_button(
-                    "Download Heatmap as PNG",
-                    data=img_heat,
-                    file_name="genescope_heatmap.png",
-                    mime="image/png"
+                    "Download Heatmap as HTML",
+                    data=html_heat,
+                    file_name="genescope_heatmap.html",
+                    mime="text/html"
                 )
             except Exception as e:
                 st.error(f"Error generating heatmap: {e}")
@@ -210,12 +211,12 @@ if df is not None:
 
             st.plotly_chart(fig_pca, use_container_width=True)
 
-            img_pca = fig_pca.to_image(format="png", width=900, height=700, scale=2)
+            html_pca = fig_pca.to_html(full_html=True, include_plotlyjs='cdn')
             st.download_button(
-                "Download PCA Plot as PNG",
-                data=img_pca,
-                file_name="genescope_pca_plot.png",
-                mime="image/png"
+                "Download PCA Plot as HTML",
+                data=html_pca,
+                file_name="genescope_pca_plot.html",
+                mime="text/html"
             )
 
             # CSV download
